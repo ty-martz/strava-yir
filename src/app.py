@@ -161,8 +161,8 @@ def update_analysis(contents):
     filt = [{'label': activity_type, 'value': activity_type} for activity_type in activity_types]
     
     # monthly distances
-    dist_month = px.bar(grp_df_dist, x='month', y='distance', title='Total Elevation Gain by Month',
-            labels={'month': 'Month', 'total_elevation_gain': 'Total Elevation Gain (meters)'},
+    dist_month = px.bar(grp_df_dist, x='month', y='distance', title='Total Distance by Month',
+            labels={'month': 'Month', 'distance': 'Total Distance'},
             color='type'
             #color_discrete_sequence=['#FFA500'],
             )
@@ -211,8 +211,8 @@ def update_activity_graph(selected_activity_types, contents):
     
     df, df_2022, activity_types, grp_df_elev, grp_df_dist, table_dat, td_og = startup_procedure(upload_filt)
     
-    dist_month = px.bar(grp_df_dist, x='month', y='distance', title='Total Elevation Gain by Month',
-            labels={'month': 'Month', 'total_elevation_gain': 'Total Elevation Gain (meters)'},
+    dist_month = px.bar(grp_df_dist, x='month', y='distance', title='Total Distance by Month',
+            labels={'month': 'Month', 'distance': 'Total Distance (meters)'},
             color='type'
             )
 
