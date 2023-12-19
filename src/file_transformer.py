@@ -7,7 +7,7 @@ def transform_csv_export(data, year=2023, uploaded=None):
     data['start_date'] = pd.to_datetime(data['Activity Date'], format='%b %d, %Y, %I:%M:%S %p')
     df = data[data.start_date.dt.year == year].reset_index(drop=True).copy()
     
-    df['start_date_local'] = pd.to_datetime(df['start_date']).strftime(format='%Y-%m-%d')
+    df['start_date_local'] = pd.to_datetime(df['start_date'], format='%Y-%m-%d')
     df.sort_values('start_date_local', inplace=True)
 
     # Create a new column for month
@@ -40,7 +40,7 @@ def transform_json_api(data, year=2023):
     df = data[data.start_date.dt.year == year].reset_index(drop=True).copy()
 
     # Convert 'start_date_local' to datetime and sort by date
-    df['start_date_local'] = pd.to_datetime(df['start_date_local']).strftime(format='%Y-%m-%d')
+    df['start_date_local'] = pd.to_datetime(df['start_date_local'], format='%Y-%m-%d')
     df.sort_values('start_date_local', inplace=True)
 
     # Create a new column for month
